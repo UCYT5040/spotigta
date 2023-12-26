@@ -11,7 +11,9 @@ def check_gta():
                 print("Pinging GTA V...")
                 for file in proc.open_files():
                     if "little-bass-funk" in file.path:
+                        print("Pinged (yes)")
                         return True
+                print("Pinged")
         except psutil.AccessDenied:
             pass
     return False
@@ -30,4 +32,4 @@ while True:
             print('GTA V is not playing music. (Spotify will stop soon.)')
         pynput.keyboard.Controller().press(pynput.keyboard.Key.media_play_pause)
         last_state = state
-    time.sleep(0.1)
+    time.sleep(1)
